@@ -5,6 +5,16 @@ let first = '';
 let second = '';
 let operator = '';
 let result = '';
+const append = (no) => {
+  show.textContent += `${no}`;
+        if(operator === ''){
+          first += `${no}`;
+        }
+        else{
+          second += `${no}`;
+          solve();
+        }
+};
 for(let button of buttons){
   button.addEventListener('keypress', (e) => {
     if(first.length >= 1){
@@ -13,95 +23,31 @@ for(let button of buttons){
     }
     switch(e.key){
       case '7':
-        show.textContent += '7';
-        if(operator === ''){
-          first += '7';
-        }
-        else{
-          second += '7';
-          solve();
-        }
+        append(7);
         break;
       case '8':
-        show.textContent += '8';
-        if(operator === ''){
-          first += '8';
-        }
-        else{
-          second += '8';
-          solve();
-        }
+        append(8);
         break;
       case '9':
-        show.textContent += '9';
-        if(operator === ''){
-          first += '9';
-        }
-        else{
-          second += '9';
-          solve();
-        }
+        append(9);
         break;
       case '4':
-        show.textContent += '4';
-        if(operator === ''){
-          first += '4';
-        }
-        else{
-          second += '4';
-          solve();
-        }
+        append(4);
         break;
       case '5':
-        show.textContent += '5';
-        if(operator === ''){
-          first += '5';
-        }
-        else{
-          second += '5';
-          solve();
-        }
+        append(5);
         break;
       case '6':
-        show.textContent += '6';
-        if(operator === ''){
-          first += '6';
-        }
-        else{
-          second += '6';
-          solve();
-        }
+        append(6);
         break;
       case '1':
-        show.textContent += '1';
-        if(operator === ''){
-          first += '1';
-        }
-        else{
-          second += '1';
-          solve();
-        }
+        append(1);
         break;
       case '2':
-        show.textContent += '2';
-        if(operator === ''){
-          first += '2';
-          solve();
-        }
-        else{
-          second += '2';
-          solve();
-        }
+        append(2);
         break;
       case '3':
-        show.textContent += '3';
-        if(operator === ''){
-          first += '3';
-        }
-        else{
-          second += '3';
-          solve();
-        };
+        append(3);
         break;
       case '.':
         if(operator === ''){
@@ -119,14 +65,7 @@ for(let button of buttons){
         }
         break;
       case '0':
-        show.textContent += '0';
-        if(operator === ''){
-          first += '0';
-        }
-        else{
-          second += '0';
-          solve();
-        };
+        append(0);
         break;
       case '=':
         operate();
@@ -166,13 +105,13 @@ for(let button of buttons){
           second = '';
           operator = '';
           show.textContent = show.textContent.slice(0, -1);
+          if(first.length === 1){
+            answer.textContent = '';
+          }
         }
         else{
           answer.textContent = '';
           clear();
-        }
-        if(first.length === 1){
-          answer.textContent = '';
         }
         break;
       case '/':
@@ -249,7 +188,7 @@ for(let button of buttons){
           operator = '+';
         }
         break;
-      }
+      };
      });
      button.addEventListener('click', () => {
       if(first.length >= 1){
@@ -258,95 +197,31 @@ for(let button of buttons){
       }
       switch(button.id){
         case '7':
-          show.textContent += '7';
-          if(operator === ''){
-            first += '7';
-          }
-          else{
-            second += '7';
-            solve();
-          }
+          append(7);
           break;
         case '8':
-          show.textContent += '8';
-          if(operator === ''){
-            first += '8';
-          }
-          else{
-            second += '8';
-            solve();
-          }
+          append(8);
           break;
         case '9':
-          show.textContent += '9';
-          if(operator === ''){
-            first += '9';
-          }
-          else{
-            second += '9';
-            solve();
-          }
+          append(9);
           break;
         case '4':
-          show.textContent += '4';
-          if(operator === ''){
-            first += '4';
-          }
-          else{
-            second += '4';
-            solve();
-          }
+          append(4);
           break;
         case '5':
-          show.textContent += '5';
-          if(operator === ''){
-            first += '5';
-          }
-          else{
-            second += '5';
-            solve();
-          }
+          append(5);
           break;
         case '6':
-          show.textContent += '6';
-          if(operator === ''){
-            first += '6';
-          }
-          else{
-            second += '6';
-            solve();
-          }
+          append(6);
           break;
         case '1':
-          show.textContent += '1';
-          if(operator === ''){
-            first += '1';
-          }
-          else{
-            second += '1';
-            solve();
-          }
+          append(1);
           break;
         case '2':
-          show.textContent += '2';
-          if(operator === ''){
-            first += '2';
-            solve();
-          }
-          else{
-            second += '2';
-            solve();
-          }
+          append(2);
           break;
         case '3':
-          show.textContent += '3';
-          if(operator === ''){
-            first += '3';
-          }
-          else{
-            second += '3';
-            solve();
-          };
+          append(3);
           break;
         case '.':
           if(operator === ''){
@@ -364,14 +239,7 @@ for(let button of buttons){
           }
           break;
         case '0':
-          show.textContent += '0';
-          if(operator === ''){
-            first += '0';
-          }
-          else{
-            second += '0';
-            solve();
-          };
+          append(0);
           break;
         case '=':
           operate();
@@ -405,13 +273,13 @@ for(let button of buttons){
             second = '';
             operator = '';
             show.textContent = show.textContent.slice(0, -1);
+            if(first.length === 1){
+              answer.textContent = '';
+            }
           }
           else{
             answer.textContent = '';
             clear();
-          }
-          if(first.length === 1){
-            answer.textContent = '';
           }
           break;
         case '/':
@@ -722,7 +590,7 @@ if(operator === '√'){
   }
   answer.textContent = result;
 }
-}
+};
 const clear = () => {
   first = '';
   second = '';
@@ -757,14 +625,51 @@ toggle .addEventListener('click', () => {
         document.querySelector('.answer').style.color = '';
     }
 });
-document.querySelector('.col3').addEventListener('mouseover', () => {
-    document.querySelector('.col4').style.display = 'flex';
-    if(document.querySelector('.col4').style.display === 'flex'){
-      document.querySelector('.col1').addEventListener('mouseover', () => {
-        document.querySelector('.col4').style.display = '';
-        document.querySelectorAll('.col1 button').forEach((key) => {
-          key = '';
-        });
+function disabler(){
+  if(document.querySelector('.col4').style.display === 'flex'){
+    document.querySelectorAll('.col1 button').forEach((key) => {
+      key.setAttribute('disabled', 'true');
     });
+    document.querySelectorAll('.col4 button').forEach((key) => {
+      key.removeAttribute('disabled');
+    });
+}
+  else{
+    document.querySelectorAll('.col1 button').forEach((key) => {
+      key.removeAttribute('disabled');
+    });
+    document.querySelectorAll('.col4 button').forEach((key) => {
+        key.setAttribute('disabled', 'true');
+    });
+  } 
+}
+const resize = () => {
+  if(window.innerWidth > 520){
+    document.querySelector('.col3').addEventListener('mouseover', () => {
+      document.querySelector('.col4').style.display = 'flex';
+      document.querySelector('.col5').style.display = 'flex';
+      if(document.querySelector('.col4').style.display === 'flex'){
+      document.querySelector('.col5').addEventListener('mouseover', () => {
+      document.querySelector('.col4').style.display = '';
+      document.querySelector('.col5').style.display = '';
+      });
+    }
+  });
   }
-});
+  else{
+      document.querySelector('.col3').addEventListener('click', () => {
+      document.querySelector('.col4').style.display = 'flex';
+      document.querySelector('.col5').style.display = 'flex';
+      disabler();
+      if(document.querySelector('.col4').style.display === 'flex'){
+      document.querySelector('.col5').addEventListener('click', () => {
+      document.querySelector('.col4').style.display = '';
+      document.querySelector('.col5').style.display = '';
+      disabler();
+      });
+    }
+  });
+  }
+};
+resize()
+window.addEventListener('resize', resize);
